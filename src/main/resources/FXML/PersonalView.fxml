@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<GridPane fx:id="personalView" vgap="5.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+    <ColumnConstraints hgrow="NEVER" />
+    <ColumnConstraints hgrow="SOMETIMES" />
+      <ColumnConstraints hgrow="NEVER" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints vgrow="SOMETIMES" />
+    <RowConstraints vgrow="SOMETIMES" />
+    <RowConstraints vgrow="SOMETIMES" />
+      <RowConstraints vgrow="SOMETIMES" />
+      <RowConstraints vgrow="SOMETIMES" />
+      <RowConstraints vgrow="SOMETIMES" />
+      <RowConstraints vgrow="SOMETIMES" />
+      <RowConstraints vgrow="SOMETIMES" />
+      <RowConstraints vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <TextField fx:id="dniTextField" GridPane.columnIndex="1" />
+      <TextField fx:id="nombreTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField fx:id="apellidosTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Label text="DNI/NIE/Pasaporte" />
+      <Label text="Nombre" GridPane.rowIndex="1" />
+      <Label text="Apellidos" GridPane.rowIndex="2" />
+      <Label text="Fecha de nacimiento" GridPane.rowIndex="3" />
+      <Label text="Dirección" GridPane.rowIndex="4" />
+      <Label text="Código Postal" GridPane.rowIndex="5" />
+      <Label text="País" GridPane.rowIndex="7" />
+      <Label text="Localidad" GridPane.rowIndex="6" />
+      <Label text="Nacionalidad" GridPane.rowIndex="8" />
+      <DatePicker fx:id="fechaNacimientoDate" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <ComboBox fx:id="paisComboBox" prefWidth="150.0" promptText="Seleccione un país" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+      <TextArea fx:id="direccionTextArea" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <TextField fx:id="codigoPostalTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+      <TextField fx:id="localidadtextField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+      <VBox GridPane.columnIndex="2" GridPane.rowIndex="8">
+         <children>
+            <Button mnemonicParsing="false" onAction="#onAnadirNacionalidad" text="+">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#onQuitarNacionalidad" prefHeight="25.0" prefWidth="25.0" text="-" VBox.vgrow="SOMETIMES" />
+         </children>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="2.0" />
+         </padding>
+      </VBox>
+      <ListView fx:id="nacionalidadesListView" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+   </children>
+</GridPane>
