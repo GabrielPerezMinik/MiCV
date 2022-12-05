@@ -1,4 +1,4 @@
-package gui;
+package gui.lanzador;
 
 public class Lanzador {
 

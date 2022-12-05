@@ -13,7 +13,8 @@ import org.hildan.fxgson.FxGson;
 
 import com.google.gson.Gson;
 
-import gui.AppCV;
+import cv.CV;
+import gui.lanzador.AppCV;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
@@ -21,6 +22,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Tab;
 import javafx.scene.image.Image;
@@ -37,7 +40,9 @@ public class RootController implements Initializable {
 
 	//model
 	private ObjectProperty<CV> cv = new SimpleObjectProperty<>();
-	
+	private Boolean guardar=false;
+	private File ficheroCV;
+ 	
 
 	//Conexion Controladores
 	
@@ -119,12 +124,23 @@ public class RootController implements Initializable {
 
 	private void onCVChanged(ObservableValue<? extends CV> o, CV ov, CV nv) {
 	
-		if(ov !=null) {
-			personalController.personalObjectPropertyProperty().unbind();
-		}
-		if (nv!=null) {
-			personalController.personalObjectPropertyProperty().bind(nv.personalObjectPropertyProperty());
-		}
+		if (ov != null) {
+		personalController.personalObjectProperty().unbind();
+		contactoController.contactoObjectProperty().unbind();
+		experienciaController.experienciaListProperty().unbind();
+		formacionController.FormacionListProperty().unbind();
+		conocimientoController.conocimientoListProperty().unbind();
+
+	}
+
+	if (nv != null) {
+		personalController.personalObjectProperty().bind(nv.personalObjectProperty());
+		contactoController.contactoObjectProperty().bind(nv.contactObjectProperty());
+		experienciaController.experienciaListProperty().bind(nv.experienciaListProperty());
+		formacionController.FormacionListProperty().bind(nv.titulosListProperty());
+		conocimientoController.conocimientoListProperty().bind(nv.conocimientoListProperty());
+
+	}
 		
 	}
 
@@ -137,7 +153,8 @@ public class RootController implements Initializable {
 		if(selectedFile !=null) {
 			try {
 				String json = Files.readString(selectedFile.toPath(),StandardCharsets.UTF_8);
-				gson.fromJson(json, CV.class);		
+				CV cv = gson.fromJson(json, CV.class);
+				this.cv.set(cv);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -148,13 +165,30 @@ public class RootController implements Initializable {
 	@FXML
 	void onCrearNuevoCV(ActionEvent event) {
 
-		personalController.personalObjectPropertyProperty().unbind();
+		CV cv = new CV();
+		this.cv.set(cv);
 		
 	}
 
 	@FXML
 	void onGuardar(ActionEvent event) {
-
+		if (!guardar) {
+			onGuardarComo(event);
+			guardar = true;
+		} else {
+			if (ficheroCV != null) {
+				String json = gson.toJson(cv.get(), CV.class);
+				try {
+					Files.writeString(ficheroCV.toPath(), json, StandardCharsets.UTF_8, StandardOpenOption.CREATE);
+				} catch (IOException e) {
+					Alert alertaErrort= new Alert(AlertType.ERROR);
+					alertaErrort.setHeaderText("ocurrio un error");
+					alertaErrort.setContentText("El Curriculum Vitae no se ha podido guardar");
+					alertaErrort.showAndWait();
+				}
+			}
+		}
+		
 	}
 
 	@FXML
@@ -169,7 +203,10 @@ public class RootController implements Initializable {
 			try {
 				Files.writeString(cvFile.toPath(), json, StandardCharsets.UTF_8, StandardOpenOption.CREATE);
 			} catch (IOException e) {
-				e.printStackTrace();
+				Alert alertaErrort= new Alert(AlertType.ERROR);
+				alertaErrort.setHeaderText("ocurrio un error");
+				alertaErrort.setContentText("El Curriculum Vitae no se ha podido guardar");
+				alertaErrort.showAndWait();
 			}
 		}
 	}

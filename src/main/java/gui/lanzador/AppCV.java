@@ -1,4 +1,4 @@
-package gui;
+package gui.lanzador;
 
 import gui.Entrañas.RootController;
 import javafx.application.Application;

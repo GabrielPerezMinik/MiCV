@@ -1,4 +1,4 @@
-package gui.Entrañas;
+package gui.Entrañas.Dialog;
 
 import java.io.IOException;
 import java.net.URL;
@@ -43,7 +43,7 @@ public class TelefonoDialog extends Dialog<Telefono> implements Initializable {
 	public TelefonoDialog() {
 		super();
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/TelefonoDialog.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/dialog/TelefonoDialog.fxml"));
 			loader.setController(this);
 			loader.load();
 		} catch (IOException e) {
@@ -77,13 +77,14 @@ public class TelefonoDialog extends Dialog<Telefono> implements Initializable {
  
 		tipoCombo.getItems().setAll(TipoTelefono.values());
  
+		numeroText.requestFocus();
 	}
  
 	private Telefono onConvertResult(ButtonType buttonType) {
 		if (buttonType.getButtonData() == ButtonData.OK_DONE) {
 			Telefono telefono = new Telefono();
 			telefono.setNumero(numero.get());
-//			telefono.setTipo(tipo.get());
+			telefono.setTipoTelefono(tipo.get());
 			return telefono;
 		}
 		return null;

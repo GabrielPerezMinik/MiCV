@@ -9,20 +9,20 @@
 
 <BorderPane fx:id="formacionView" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <TableView BorderPane.alignment="CENTER">
+      <TableView fx:id="formacionTableView" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="91.0" text="Desde" />
-          <TableColumn prefWidth="73.0" text="Hasta" />
-            <TableColumn prefWidth="91.0" text="Denominación" />
-            <TableColumn prefWidth="82.0" text="Organizador" />
+          <TableColumn fx:id="desdeColumnTable" prefWidth="91.0" text="Desde" />
+          <TableColumn fx:id="hastaColumnTable" prefWidth="73.0" text="Hasta" />
+            <TableColumn fx:id="denominacionColumnTable" prefWidth="91.0" text="Denominación" />
+            <TableColumn fx:id="organizadorColumnTable" prefWidth="82.0" text="Organizador" />
         </columns>
       </TableView>
    </center>
    <right>
       <VBox spacing="5.0" BorderPane.alignment="CENTER">
          <children>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Añadir " />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Eliminar" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAnadir" text="Añadir " />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onEliminar" text="Eliminar" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="2.0" />

@@ -14,18 +14,18 @@
          <content>
             <BorderPane>
                <center>
-                  <TableView BorderPane.alignment="CENTER">
+                  <TableView fx:id="telefonoTableView" BorderPane.alignment="CENTER">
                      <columns>
-                        <TableColumn text="Número" />
-                        <TableColumn prefWidth="75.0" text="Tipo" />
+                        <TableColumn fx:id="numeroTableColum" text="Número" />
+                        <TableColumn fx:id="tipoTableColum" prefWidth="75.0" text="Tipo" />
                      </columns>
                   </TableView>
                </center>
                <right>
                   <VBox BorderPane.alignment="CENTER">
                      <children>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Añadir" />
-                        <Button mnemonicParsing="false" text="Eliminar" />
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAnadirTelef" text="Añadir" />
+                        <Button mnemonicParsing="false" onAction="#onEliminarTelef" text="Eliminar" />
                      </children>
                   </VBox>
                </right>
@@ -36,17 +36,17 @@
          <content>
             <BorderPane>
                <center>
-                  <TableView BorderPane.alignment="CENTER">
+                  <TableView fx:id="emailTableView" BorderPane.alignment="CENTER">
                      <columns>
-                        <TableColumn prefWidth="260.0" text="E-mail" />
+                        <TableColumn fx:id="emailColumntable" prefWidth="260.0" text="E-mail" />
                      </columns>
                   </TableView>
                </center>
                <right>
                   <VBox BorderPane.alignment="CENTER">
                      <children>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Añadir" />
-                        <Button mnemonicParsing="false" text="Eliminar" />
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAnadirEmail" text="Añadir" />
+                        <Button mnemonicParsing="false" onAction="#onEliminarEmail" text="Eliminar" />
                      </children>
                   </VBox>
                </right>
@@ -59,17 +59,17 @@
                <content>
                   <BorderPane>
                      <center>
-                        <TableView BorderPane.alignment="CENTER">
+                        <TableView fx:id="urlTableView" BorderPane.alignment="CENTER">
                            <columns>
-                              <TableColumn prefWidth="260.0" text="URL" />
+                              <TableColumn fx:id="urlColumnTable" prefWidth="260.0" text="URL" />
                            </columns>
                         </TableView>
                      </center>
                      <right>
                         <VBox BorderPane.alignment="CENTER">
                            <children>
-                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Añadir" />
-                              <Button mnemonicParsing="false" text="Eliminar" />
+                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAnadirURL" text="Añadir" />
+                              <Button mnemonicParsing="false" onAction="#onEliminarURL" text="Eliminar" />
                            </children>
                         </VBox>
                      </right>

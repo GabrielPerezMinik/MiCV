@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="View" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox spacing="5.0">
+         <children>
+            <Label text="Denominación" />
+            <TextField fx:id="denominacionTextField" />
+         </children>
+      </HBox>
+      <HBox spacing="5.0">
+         <children>
+            <Label text="Organizador">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="organizadorTextField" />
+         </children>
+      </HBox>
+      <HBox spacing="5.0">
+         <children>
+            <Label text="Desde">
+               <HBox.margin>
+                  <Insets left="42.0" />
+               </HBox.margin>
+            </Label>
+            <DatePicker fx:id="desdeDatePicker" />
+         </children>
+      </HBox>
+      <HBox spacing="5.0">
+         <children>
+            <Label text="Hasta">
+               <HBox.margin>
+                  <Insets left="46.0" />
+               </HBox.margin>
+            </Label>
+            <DatePicker fx:id="hastaDatePicker" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

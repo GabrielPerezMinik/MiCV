@@ -7,6 +7,7 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.BorderPane?>
 
 <BorderPane fx:id="rootView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
@@ -19,20 +20,32 @@
                      <graphic>
                         <ImageView fx:id="nuevoImage" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
                   </MenuItem>
                   <MenuItem fx:id="abrirMenuItem" mnemonicParsing="false" onAction="#onAbrirCV" text="Abrir...">
                      <graphic>
                         <ImageView fx:id="abrirImage" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="A" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
                   </MenuItem>
                   <MenuItem fx:id="guardarMenuItem" mnemonicParsing="false" onAction="#onGuardar" text="Guardar">
                      <graphic>
                         <ImageView fx:id="guardarImage" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="G" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
                   </MenuItem>
                   <MenuItem fx:id="guardarComoMenuItem" mnemonicParsing="false" onAction="#onGuardarComo" text="Guardar como..." />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem fx:id="salirMenuItem" mnemonicParsing="false" onAction="#onSalir" text="Salir" />
+                  <MenuItem fx:id="salirMenuItem" mnemonicParsing="false" onAction="#onSalir" text="Salir">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Ayuda">

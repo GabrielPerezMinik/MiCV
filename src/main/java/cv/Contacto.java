@@ -2,48 +2,49 @@ package cv;
 
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Contacto {
 
-	ListProperty<Telefono>telefonos= new SimpleListProperty<>();
-	ListProperty<Email>email= new SimpleListProperty<>();
-	ListProperty<Web>web= new SimpleListProperty<>();
-	public final ListProperty<Telefono> telefonosProperty() {
-		return this.telefonos;
+	ListProperty<Telefono> telefonosList = new SimpleListProperty<>(FXCollections.observableArrayList());
+	ListProperty<Email> emailList = new SimpleListProperty<>(FXCollections.observableArrayList());
+	ListProperty<Web> webList = new SimpleListProperty<>(FXCollections.observableArrayList());
+
+	public final ListProperty<Telefono> telefonosListProperty() {
+		return this.telefonosList;
 	}
-	
-	public final ObservableList<Telefono> getTelefonos() {
-		return this.telefonosProperty().get();
+
+	public final ObservableList<Telefono> getTelefonosList() {
+		return this.telefonosListProperty().get();
 	}
-	
-	public final void setTelefonos(final ObservableList<Telefono> telefonos) {
-		this.telefonosProperty().set(telefonos);
+
+	public final void setTelefonosList(final ObservableList<Telefono> telefonosList) {
+		this.telefonosListProperty().set(telefonosList);
 	}
-	
-	public final ListProperty<Email> emailProperty() {
-		return this.email;
+
+	public final ListProperty<Email> emailListProperty() {
+		return this.emailList;
 	}
-	
-	public final ObservableList<Email> getEmail() {
-		return this.emailProperty().get();
+
+	public final ObservableList<Email> getEmailList() {
+		return this.emailListProperty().get();
 	}
-	
-	public final void setEmail(final ObservableList<Email> email) {
-		this.emailProperty().set(email);
+
+	public final void setEmailList(final ObservableList<Email> emailList) {
+		this.emailListProperty().set(emailList);
 	}
-	
-	public final ListProperty<Web> webProperty() {
-		return this.web;
+
+	public final ListProperty<Web> webListProperty() {
+		return this.webList;
 	}
-	
-	public final ObservableList<Web> getWeb() {
-		return this.webProperty().get();
+
+	public final ObservableList<Web> getWebList() {
+		return this.webListProperty().get();
 	}
-	
-	public final void setWeb(final ObservableList<Web> web) {
-		this.webProperty().set(web);
+
+	public final void setWebList(final ObservableList<Web> webList) {
+		this.webListProperty().set(webList);
 	}
-	
-	
+
 }
