@@ -1,11 +1,11 @@
-package gui.Entrañas.Dialog;
+package cv.gui.dialogs;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import cv.Telefono;
-import cv.TipoTelefono;
+import cv.model.Telefono;
+import cv.model.TipoTelefono;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;

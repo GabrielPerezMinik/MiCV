@@ -1,4 +1,4 @@
-package cv;
+package cv.model;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;

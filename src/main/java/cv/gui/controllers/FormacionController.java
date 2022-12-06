@@ -1,4 +1,4 @@
-package gui.Entrañas;
+package cv.gui.controllers;
 
 import java.io.IOException;
 import java.net.URL;
@@ -6,9 +6,9 @@ import java.time.LocalDate;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-import cv.Titulo;
-import gui.Entrañas.Dialog.TituloDialog;
-import gui.lanzador.AppCV;
+import cv.gui.app.AppCV;
+import cv.gui.dialogs.TituloDialog;
+import cv.model.Titulo;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.ObservableList;

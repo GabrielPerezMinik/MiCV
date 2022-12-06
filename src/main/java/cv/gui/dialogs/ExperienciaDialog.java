@@ -1,11 +1,11 @@
-package gui.Entrañas.Dialog;
+package cv.gui.dialogs;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-import cv.Titulo;
+import cv.model.Experiencia;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -22,10 +22,10 @@ import javafx.scene.control.Dialog;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
-public class TituloDialog extends Dialog<Titulo> implements Initializable{
+public class ExperienciaDialog extends Dialog<Experiencia> implements Initializable{
 
 	private StringProperty denominacion = new SimpleStringProperty();
-	private StringProperty organizador = new SimpleStringProperty();
+	private StringProperty empleador = new SimpleStringProperty();
 	private ObjectProperty<LocalDate> desdeObject = new SimpleObjectProperty<>();
 	private ObjectProperty<LocalDate> hastaObject = new SimpleObjectProperty<>();
 	
@@ -42,42 +42,42 @@ public class TituloDialog extends Dialog<Titulo> implements Initializable{
     private DatePicker hastaDatePicker;
 
     @FXML
-    private TextField organizadorTextField;
+    private TextField empleadorTextField;
 	
-    public TituloDialog() {
-		super();
+    public ExperienciaDialog() {
+    	super();
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/dialog/TituloDialog.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/dialog/ExperienciaDialog.fxml"));
 			loader.setController(this);
 			loader.load();
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
-	}
+    }
     
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
-
 		ButtonType crearButtonType = new ButtonType("Crear", ButtonData.OK_DONE);
 
-		setTitle("Nuevo título");
-		
+		setTitle("Nuevo experiencia");
+
 		getDialogPane().setContent(View);
 		getDialogPane().getButtonTypes().addAll(crearButtonType, ButtonType.CANCEL);
-		
+
 		setResultConverter(buttonType -> onCovertResult(buttonType));
 		
 		Button crearButton = (Button) getDialogPane().lookupButton(crearButtonType);
-		crearButton.disableProperty().bind(denominacion.isEmpty().or(organizador.isEmpty().or(desdeObject.isNull().or(hastaObject.isNull()))));
-		
+		crearButton.disableProperty()
+				.bind(denominacion.isEmpty().or(empleador.isEmpty().or(desdeObject.isNull().or(hastaObject.isNull()))));
+
 		denominacion.bind(denominacionTextField.textProperty());
-		organizador.bind(organizadorTextField.textProperty());
+		empleador.bind(empleadorTextField.textProperty());
 		desdeObject.bind(desdeDatePicker.valueProperty());
 		hastaObject.bind(hastaDatePicker.valueProperty());
-		
+
 		denominacionTextField.requestFocus();
-		
+
 		hastaDatePicker.setDayCellFactory(d -> new DateCell() {
 			@Override
 			public void updateItem(LocalDate item, boolean empty) {
@@ -99,27 +99,19 @@ public class TituloDialog extends Dialog<Titulo> implements Initializable{
 		});
 		
 	}
-	
-	
 
-	private Titulo onCovertResult(ButtonType buttonType) {
-		if(buttonType.getButtonData() == ButtonData.OK_DONE) {
-			Titulo titulo = new Titulo();
-			titulo.setDenominacion(denominacion.get());
-			titulo.setOrganizador(organizador.get());
-			titulo.setDesdeObject(desdeDatePicker.getValue());
-			titulo.setHastaObject(hastaDatePicker.getValue());
-			return titulo;
+	private Experiencia onCovertResult(ButtonType buttonType) {
+		
+		if (buttonType.getButtonData() == ButtonData.OK_DONE) {
+			Experiencia experiencia = new Experiencia();
+			experiencia.setDenominacion(denominacion.get());
+			experiencia.setEmpleador(empleador.get());
+			experiencia.setDesdeObject(desdeDatePicker.getValue());
+			experiencia.setHastaObject(hastaDatePicker.getValue());
+			return experiencia;
 		}
 		return null;
+		
 	}
 
-
-
-	public VBox getView() {
-		return View;
-	}
-
-	
-	
 }

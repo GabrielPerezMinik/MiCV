@@ -1,15 +1,15 @@
-package gui.Entrañas;
+package cv.gui.controllers;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-import cv.Conocimiento;
-import cv.Nivel;
-import gui.Entrañas.Dialog.ConocimientoDialog;
-import gui.Entrañas.Dialog.IdiomaDialog;
-import gui.lanzador.AppCV;
+import cv.gui.app.AppCV;
+import cv.gui.dialogs.ConocimientoDialog;
+import cv.gui.dialogs.IdiomaDialog;
+import cv.model.Conocimiento;
+import cv.model.Nivel;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.ObservableList;

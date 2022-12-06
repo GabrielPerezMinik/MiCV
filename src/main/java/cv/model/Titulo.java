@@ -1,4 +1,4 @@
-package cv;
+package cv.model;
 
 import java.time.LocalDate;
 

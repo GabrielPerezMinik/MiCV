@@ -1,16 +1,16 @@
-package gui.Entrañas;
+package cv.gui.controllers;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import cv.Contacto;
-import cv.Email;
-import cv.Telefono;
-import cv.TipoTelefono;
-import cv.Web;
-import gui.Entrañas.Dialog.TelefonoDialog;
-import gui.lanzador.AppCV;
+import cv.gui.app.AppCV;
+import cv.gui.dialogs.TelefonoDialog;
+import cv.model.Contacto;
+import cv.model.Email;
+import cv.model.Telefono;
+import cv.model.TipoTelefono;
+import cv.model.Web;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;

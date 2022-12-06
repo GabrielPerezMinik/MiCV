@@ -1,4 +1,4 @@
-package cv;
+package cv.model;
 
 public enum Nivel {
 

@@ -1,4 +1,4 @@
-package cv;
+package cv.model;
 
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;

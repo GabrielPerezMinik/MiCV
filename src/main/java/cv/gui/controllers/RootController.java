@@ -1,4 +1,4 @@
-package gui.Entrañas;
+package cv.gui.controllers;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,8 +13,8 @@ import org.hildan.fxgson.FxGson;
 
 import com.google.gson.Gson;
 
-import cv.CV;
-import gui.lanzador.AppCV;
+import cv.gui.app.AppCV;
+import cv.model.CV;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
