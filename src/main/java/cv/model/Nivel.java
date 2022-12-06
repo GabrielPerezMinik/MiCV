@@ -2,8 +2,8 @@ package cv.model;
 
 public enum Nivel {
 
-	Basico,
-	Medio,
-	Avanazado
+	BASICO,
+	MEDIO,
+	AVANZADO
 	
 }

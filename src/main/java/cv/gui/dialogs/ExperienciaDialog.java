@@ -106,8 +106,8 @@ public class ExperienciaDialog extends Dialog<Experiencia> implements Initializa
 			Experiencia experiencia = new Experiencia();
 			experiencia.setDenominacion(denominacion.get());
 			experiencia.setEmpleador(empleador.get());
-			experiencia.setDesdeObject(desdeDatePicker.getValue());
-			experiencia.setHastaObject(hastaDatePicker.getValue());
+			experiencia.setDesde(desdeDatePicker.getValue());
+			experiencia.setHasta(hastaDatePicker.getValue());
 			return experiencia;
 		}
 		return null;

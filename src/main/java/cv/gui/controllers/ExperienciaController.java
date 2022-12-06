@@ -60,8 +60,8 @@ public class ExperienciaController implements Initializable {
 		experienciaTableView.itemsProperty().bind(experienciaList);
 		denominacioColumnTable.setCellValueFactory(v -> v.getValue().denominacionProperty());
 		empleadorColumTable.setCellValueFactory(v -> v.getValue().empleadorProperty());
-		desdeColumtable.setCellValueFactory(v -> v.getValue().desdeObjectProperty());
-		hastaColumntable.setCellValueFactory(v -> v.getValue().hastaObjectProperty());
+		desdeColumtable.setCellValueFactory(v -> v.getValue().desdeProperty());
+		hastaColumntable.setCellValueFactory(v -> v.getValue().hastaProperty());
 		
 		
 		denominacioColumnTable.setCellFactory(TextFieldTableCell.forTableColumn());

@@ -65,8 +65,8 @@ public class FormacionController implements Initializable {
 
 		denominacionColumnTable.setCellValueFactory(v -> v.getValue().denominacionProperty());
 		organizadorColumnTable.setCellValueFactory(v -> v.getValue().organizadorProperty());
-		desdeColumnTable.setCellValueFactory(v -> v.getValue().desdeObjectProperty());
-		hastaColumnTable.setCellValueFactory(v -> v.getValue().hastaObjectProperty());
+		desdeColumnTable.setCellValueFactory(v -> v.getValue().desdeProperty());
+		hastaColumnTable.setCellValueFactory(v -> v.getValue().hastaProperty());
 		
 
 		denominacionColumnTable.setCellFactory(TextFieldTableCell.forTableColumn());

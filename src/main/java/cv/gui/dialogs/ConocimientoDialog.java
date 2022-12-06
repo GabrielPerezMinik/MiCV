@@ -81,7 +81,7 @@ public class ConocimientoDialog extends Dialog<Conocimiento> implements Initiali
 		if(buttonType.getButtonData() == ButtonData.OK_DONE) {
 			Conocimiento conocimiento = new Conocimiento();
 			conocimiento.setDenominacion(denominacion.get());
-			conocimiento.setNivelObject(nivelObject.get());
+			conocimiento.setNivel(nivelObject.get());
 			return conocimiento;
 		}
 		return null;

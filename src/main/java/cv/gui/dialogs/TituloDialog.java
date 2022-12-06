@@ -107,8 +107,8 @@ public class TituloDialog extends Dialog<Titulo> implements Initializable{
 			Titulo titulo = new Titulo();
 			titulo.setDenominacion(denominacion.get());
 			titulo.setOrganizador(organizador.get());
-			titulo.setDesdeObject(desdeDatePicker.getValue());
-			titulo.setHastaObject(hastaDatePicker.getValue());
+			titulo.setDesde(desdeDatePicker.getValue());
+			titulo.setHasta(hastaDatePicker.getValue());
 			return titulo;
 		}
 		return null;

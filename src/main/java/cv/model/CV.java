@@ -9,70 +9,70 @@ import javafx.collections.ObservableList;
 
 public class CV {
 
-	private ObjectProperty<Personal>personalObject = new SimpleObjectProperty<>(new Personal());
-	private ObjectProperty<Contacto> contactObject = new SimpleObjectProperty<>(new Contacto());
-	private ListProperty<Titulo> titulosList = new SimpleListProperty<>(FXCollections.observableArrayList());
-	private ListProperty<Experiencia> experienciaList = new SimpleListProperty<>(FXCollections.observableArrayList());
-	private ListProperty<Conocimiento> conocimientoList = new SimpleListProperty<>(FXCollections.observableArrayList());
+	private ObjectProperty<Personal>personal = new SimpleObjectProperty<>(new Personal());
+	private ObjectProperty<Contacto> contacto = new SimpleObjectProperty<>(new Contacto());
+	private ListProperty<Titulo> titulos = new SimpleListProperty<>(FXCollections.observableArrayList());
+	private ListProperty<Experiencia> experiencia = new SimpleListProperty<>(FXCollections.observableArrayList());
+	private ListProperty<Conocimiento> conocimiento = new SimpleListProperty<>(FXCollections.observableArrayList());
 	
-	public final ObjectProperty<Personal> personalObjectProperty() {
-		return this.personalObject;
+	public final ObjectProperty<Personal> personalProperty() {
+		return this.personal;
 	}
 	
-	public final Personal getPersonalObject() {
-		return this.personalObjectProperty().get();
+	public final Personal getPersonal() {
+		return this.personalProperty().get();
 	}
 	
-	public final void setPersonalObject(final Personal personalObject) {
-		this.personalObjectProperty().set(personalObject);
+	public final void setPersonal(final Personal personal) {
+		this.personalProperty().set(personal);
 	}
 	
-	public final ObjectProperty<Contacto> contactObjectProperty() {
-		return this.contactObject;
+	public final ObjectProperty<Contacto> contactoProperty() {
+		return this.contacto;
 	}
 	
-	public final Contacto getContactObject() {
-		return this.contactObjectProperty().get();
+	public final Contacto getContacto() {
+		return this.contactoProperty().get();
 	}
 	
-	public final void setContactObject(final Contacto contactObject) {
-		this.contactObjectProperty().set(contactObject);
+	public final void setContacto(final Contacto contacto) {
+		this.contactoProperty().set(contacto);
 	}
 	
-	public final ListProperty<Titulo> titulosListProperty() {
-		return this.titulosList;
+	public final ListProperty<Titulo> titulosProperty() {
+		return this.titulos;
 	}
 	
-	public final ObservableList<Titulo> getTitulosList() {
-		return this.titulosListProperty().get();
+	public final ObservableList<Titulo> getTitulos() {
+		return this.titulosProperty().get();
 	}
 	
-	public final void setTitulosList(final ObservableList<Titulo> titulosList) {
-		this.titulosListProperty().set(titulosList);
+	public final void setTitulos(final ObservableList<Titulo> titulos) {
+		this.titulosProperty().set(titulos);
 	}
 	
-	public final ListProperty<Experiencia> experienciaListProperty() {
-		return this.experienciaList;
+	public final ListProperty<Experiencia> experienciaProperty() {
+		return this.experiencia;
 	}
 	
-	public final ObservableList<Experiencia> getExperienciaList() {
-		return this.experienciaListProperty().get();
+	public final ObservableList<Experiencia> getExperiencia() {
+		return this.experienciaProperty().get();
 	}
 	
-	public final void setExperienciaList(final ObservableList<Experiencia> experienciaList) {
-		this.experienciaListProperty().set(experienciaList);
+	public final void setExperiencia(final ObservableList<Experiencia> experiencia) {
+		this.experienciaProperty().set(experiencia);
 	}
 	
-	public final ListProperty<Conocimiento> conocimientoListProperty() {
-		return this.conocimientoList;
+	public final ListProperty<Conocimiento> conocimientoProperty() {
+		return this.conocimiento;
 	}
 	
-	public final ObservableList<Conocimiento> getConocimientoList() {
-		return this.conocimientoListProperty().get();
+	public final ObservableList<Conocimiento> getConocimiento() {
+		return this.conocimientoProperty().get();
 	}
 	
-	public final void setConocimientoList(final ObservableList<Conocimiento> conocimientoList) {
-		this.conocimientoListProperty().set(conocimientoList);
+	public final void setConocimiento(final ObservableList<Conocimiento> conocimiento) {
+		this.conocimientoProperty().set(conocimiento);
 	}
 	
 }

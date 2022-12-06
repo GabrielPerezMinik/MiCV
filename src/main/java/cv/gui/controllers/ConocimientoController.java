@@ -54,7 +54,7 @@ public class ConocimientoController implements Initializable {
 		conocimientoTable.itemsProperty().bind(conocimientoList);
 
 		denomicionColumTable.setCellValueFactory(v -> v.getValue().denominacionProperty());
-		nivelColumntable.setCellValueFactory(v -> v.getValue().nivelObjectProperty());
+		nivelColumntable.setCellValueFactory(v -> v.getValue().nivelProperty());
 
 		
 		denomicionColumTable.setCellFactory(TextFieldTableCell.forTableColumn());

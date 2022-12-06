@@ -134,11 +134,11 @@ public class RootController implements Initializable {
 	}
 
 	if (nv != null) {
-		personalController.personalObjectProperty().bind(nv.personalObjectProperty());
-		contactoController.contactoObjectProperty().bind(nv.contactObjectProperty());
-		experienciaController.experienciaListProperty().bind(nv.experienciaListProperty());
-		formacionController.FormacionListProperty().bind(nv.titulosListProperty());
-		conocimientoController.conocimientoListProperty().bind(nv.conocimientoListProperty());
+		personalController.personalObjectProperty().bind(nv.personalProperty());
+		contactoController.contactoObjectProperty().bind(nv.contactoProperty());
+		experienciaController.experienciaListProperty().bind(nv.experienciaProperty());
+		formacionController.FormacionListProperty().bind(nv.titulosProperty());
+		conocimientoController.conocimientoListProperty().bind(nv.conocimientoProperty());
 
 	}
 		

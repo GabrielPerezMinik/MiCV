@@ -3,7 +3,7 @@ package cv.model;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class Idioma {
+public class Idioma extends Conocimiento {
 
 	StringProperty certificacion= new SimpleStringProperty();
 

@@ -9,33 +9,33 @@ import javafx.beans.property.StringProperty;
 
 public class Titulo {
 	
-	private ObjectProperty<LocalDate> desdeObject = new SimpleObjectProperty<>();
-	private ObjectProperty<LocalDate> hastaObject = new SimpleObjectProperty<>();
+	private ObjectProperty<LocalDate> desde = new SimpleObjectProperty<>();
+	private ObjectProperty<LocalDate> hasta = new SimpleObjectProperty<>();
 	private StringProperty denominacion = new SimpleStringProperty();
 	private StringProperty organizador = new SimpleStringProperty();
 	
-	public final ObjectProperty<LocalDate> desdeObjectProperty() {
-		return this.desdeObject;
+	public final ObjectProperty<LocalDate> desdeProperty() {
+		return this.desde;
 	}
 	
-	public final LocalDate getDesdeObject() {
-		return this.desdeObjectProperty().get();
+	public final LocalDate getDesde() {
+		return this.desdeProperty().get();
 	}
 	
-	public final void setDesdeObject(final LocalDate desdeObject) {
-		this.desdeObjectProperty().set(desdeObject);
+	public final void setDesde(final LocalDate desde) {
+		this.desdeProperty().set(desde);
 	}
 	
-	public final ObjectProperty<LocalDate> hastaObjectProperty() {
-		return this.hastaObject;
+	public final ObjectProperty<LocalDate> hastaProperty() {
+		return this.hasta;
 	}
 	
-	public final LocalDate getHastaObject() {
-		return this.hastaObjectProperty().get();
+	public final LocalDate getHasta() {
+		return this.hastaProperty().get();
 	}
 	
-	public final void setHastaObject(final LocalDate hastaObject) {
-		this.hastaObjectProperty().set(hastaObject);
+	public final void setHasta(final LocalDate hasta) {
+		this.hastaProperty().set(hasta);
 	}
 	
 	public final StringProperty denominacionProperty() {

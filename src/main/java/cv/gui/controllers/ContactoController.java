@@ -82,15 +82,15 @@ public class ContactoController implements Initializable {
 
 	private void onContactoChanged(ObservableValue<? extends Contacto> o, Contacto ov, Contacto nv) {
 		if (ov != null) {
-			telefonoTableView.itemsProperty().unbindBidirectional(ov.telefonosListProperty());
-			emailTableView.itemsProperty().unbindBidirectional(ov.emailListProperty());
-			urlTableView.itemsProperty().unbindBidirectional(ov.webListProperty());
+			telefonoTableView.itemsProperty().unbindBidirectional(ov.telefonosProperty());
+			emailTableView.itemsProperty().unbindBidirectional(ov.emailProperty());
+			urlTableView.itemsProperty().unbindBidirectional(ov.webProperty());
 		}
 
 		if (nv != null) {
-			telefonoTableView.itemsProperty().bindBidirectional(nv.telefonosListProperty());
-			emailTableView.itemsProperty().bindBidirectional(nv.emailListProperty());
-			urlTableView.itemsProperty().bindBidirectional(nv.webListProperty());
+			telefonoTableView.itemsProperty().bindBidirectional(nv.telefonosProperty());
+			emailTableView.itemsProperty().bindBidirectional(nv.emailProperty());
+			urlTableView.itemsProperty().bindBidirectional(nv.webProperty());
 		}
 	}
 
@@ -100,14 +100,14 @@ public class ContactoController implements Initializable {
 		dialog.initOwner(AppCV.PrimaryStage);
 		Telefono telefono = dialog.showAndWait().orElse(null);
 		if (telefono != null) {
-			getContactoObjectProperty().telefonosListProperty().add(telefono);
+			getContactoObjectProperty().telefonosProperty().add(telefono);
 		}
 	}
 
 	@FXML
 	void onEliminarTelef(ActionEvent event) {
 		if (!telefonoTableView.getSelectionModel().isEmpty()) {
-			getContactoObjectProperty().telefonosListProperty()
+			getContactoObjectProperty().telefonosProperty()
 					.remove(telefonoTableView.getSelectionModel().selectedIndexProperty().get());
 		}
 	}
@@ -123,7 +123,7 @@ public class ContactoController implements Initializable {
 		String t=dialog.showAndWait().orElse(null);
 		email.setDireccion(t);
 		if (email != null) {
-			getContactoObjectProperty().emailListProperty().add(email);
+			getContactoObjectProperty().emailProperty().add(email);
 
 		}
 	}
@@ -131,7 +131,7 @@ public class ContactoController implements Initializable {
 	@FXML
 	void onEliminarEmail(ActionEvent event) {
 		if (!emailTableView.getSelectionModel().isEmpty()) {
-			getContactoObjectProperty().emailListProperty()
+			getContactoObjectProperty().emailProperty()
 					.remove(emailTableView.getSelectionModel().selectedIndexProperty().get());
 		}
 	}
@@ -147,14 +147,14 @@ public class ContactoController implements Initializable {
 		String t=dialog.showAndWait().orElse(null);
 		web.setUrl(t);
 		if (web != null) {
-			getContactoObjectProperty().webListProperty().add(web);
+			getContactoObjectProperty().webProperty().add(web);
 		}
 	}
 
 	@FXML
 	void onEliminarURL(ActionEvent event) {
 		if (!urlTableView.getSelectionModel().isEmpty()) {
-			getContactoObjectProperty().webListProperty()
+			getContactoObjectProperty().webProperty()
 					.remove(urlTableView.getSelectionModel().selectedIndexProperty().get());
 		}
 	}
