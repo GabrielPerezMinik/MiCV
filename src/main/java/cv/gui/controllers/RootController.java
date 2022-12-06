@@ -40,8 +40,7 @@ public class RootController implements Initializable {
 
 	//model
 	private ObjectProperty<CV> cv = new SimpleObjectProperty<>();
-	private Boolean guardar=false;
-	private File ficheroCV;
+	private File ficheroCV = null;
  	
 
 	//Conexion Controladores
@@ -157,6 +156,7 @@ public class RootController implements Initializable {
 				String json = Files.readString(selectedFile.toPath(),StandardCharsets.UTF_8);
 				CV cv = gson.fromJson(json, CV.class);
 				this.cv.set(cv);
+				ficheroCV = selectedFile;				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -169,25 +169,23 @@ public class RootController implements Initializable {
 
 		CV cv = new CV();
 		this.cv.set(cv);
+		ficheroCV = null;
 		
 	}
 
 	@FXML
 	void onGuardar(ActionEvent event) {
-		if (!guardar) {
+		if (ficheroCV == null) {
 			onGuardarComo(event);
-			guardar = true;
 		} else {
-			if (ficheroCV != null) {
-				String json = gson.toJson(cv.get(), CV.class);
-				try {
-					Files.writeString(ficheroCV.toPath(), json, StandardCharsets.UTF_8, StandardOpenOption.CREATE);
-				} catch (IOException e) {
-					Alert alertaErrort= new Alert(AlertType.ERROR);
-					alertaErrort.setHeaderText("ocurrio un error");
-					alertaErrort.setContentText("El Curriculum Vitae no se ha podido guardar");
-					alertaErrort.showAndWait();
-				}
+			String json = gson.toJson(cv.get(), CV.class);
+			try {
+				Files.writeString(ficheroCV.toPath(), json, StandardCharsets.UTF_8, StandardOpenOption.CREATE);
+			} catch (IOException e) {
+				Alert alertaErrort= new Alert(AlertType.ERROR);
+				alertaErrort.setHeaderText("ocurrio un error");
+				alertaErrort.setContentText("El Curriculum Vitae no se ha podido guardar");
+				alertaErrort.showAndWait();
 			}
 		}
 		
@@ -205,6 +203,7 @@ public class RootController implements Initializable {
 			String json = gson.toJson(cv.get(), CV.class);
 			try {
 				Files.writeString(cvFile.toPath(), json, StandardCharsets.UTF_8, StandardOpenOption.CREATE);
+				ficheroCV = cvFile;
 			} catch (IOException e) {
 				Alert alertaErrort= new Alert(AlertType.ERROR);
 				alertaErrort.setHeaderText("ocurrio un error");
