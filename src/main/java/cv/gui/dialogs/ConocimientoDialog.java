@@ -1,11 +1,11 @@
-package gui.Entrañas.Dialog;
+package cv.gui.dialogs;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import cv.Conocimiento;
-import cv.Nivel;
+import cv.model.Conocimiento;
+import cv.model.Nivel;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -81,7 +81,7 @@ public class ConocimientoDialog extends Dialog<Conocimiento> implements Initiali
 		if(buttonType.getButtonData() == ButtonData.OK_DONE) {
 			Conocimiento conocimiento = new Conocimiento();
 			conocimiento.setDenominacion(denominacion.get());
-			conocimiento.setNivelObject(nivelObject.get());
+			conocimiento.setNivel(nivelObject.get());
 			return conocimiento;
 		}
 		return null;

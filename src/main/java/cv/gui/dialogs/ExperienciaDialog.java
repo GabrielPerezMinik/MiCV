@@ -1,11 +1,11 @@
-package gui.Entrañas.Dialog;
+package cv.gui.dialogs;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-import cv.Experiencia;
+import cv.model.Experiencia;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -106,8 +106,8 @@ public class ExperienciaDialog extends Dialog<Experiencia> implements Initializa
 			Experiencia experiencia = new Experiencia();
 			experiencia.setDenominacion(denominacion.get());
 			experiencia.setEmpleador(empleador.get());
-			experiencia.setDesdeObject(desdeDatePicker.getValue());
-			experiencia.setHastaObject(hastaDatePicker.getValue());
+			experiencia.setDesde(desdeDatePicker.getValue());
+			experiencia.setHasta(hastaDatePicker.getValue());
 			return experiencia;
 		}
 		return null;

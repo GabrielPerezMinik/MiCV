@@ -1,11 +1,11 @@
-package gui.Entrañas.Dialog;
+package cv.gui.dialogs;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-import cv.Titulo;
+import cv.model.Titulo;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -107,8 +107,8 @@ public class TituloDialog extends Dialog<Titulo> implements Initializable{
 			Titulo titulo = new Titulo();
 			titulo.setDenominacion(denominacion.get());
 			titulo.setOrganizador(organizador.get());
-			titulo.setDesdeObject(desdeDatePicker.getValue());
-			titulo.setHastaObject(hastaDatePicker.getValue());
+			titulo.setDesde(desdeDatePicker.getValue());
+			titulo.setHasta(hastaDatePicker.getValue());
 			return titulo;
 		}
 		return null;

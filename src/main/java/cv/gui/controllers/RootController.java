@@ -1,4 +1,4 @@
-package gui.Entrañas;
+package cv.gui.controllers;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,8 +13,8 @@ import org.hildan.fxgson.FxGson;
 
 import com.google.gson.Gson;
 
-import cv.CV;
-import gui.lanzador.AppCV;
+import cv.gui.app.AppCV;
+import cv.model.CV;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
@@ -40,8 +40,7 @@ public class RootController implements Initializable {
 
 	//model
 	private ObjectProperty<CV> cv = new SimpleObjectProperty<>();
-	private Boolean guardar=false;
-	private File ficheroCV;
+	private File ficheroCV = null;
  	
 
 	//Conexion Controladores
@@ -134,11 +133,11 @@ public class RootController implements Initializable {
 	}
 
 	if (nv != null) {
-		personalController.personalObjectProperty().bind(nv.personalObjectProperty());
-		contactoController.contactoObjectProperty().bind(nv.contactObjectProperty());
-		experienciaController.experienciaListProperty().bind(nv.experienciaListProperty());
-		formacionController.FormacionListProperty().bind(nv.titulosListProperty());
-		conocimientoController.conocimientoListProperty().bind(nv.conocimientoListProperty());
+		personalController.personalObjectProperty().bind(nv.personalProperty());
+		contactoController.contactoObjectProperty().bind(nv.contactoProperty());
+		experienciaController.experienciaListProperty().bind(nv.experienciaProperty());
+		formacionController.FormacionListProperty().bind(nv.titulosProperty());
+		conocimientoController.conocimientoListProperty().bind(nv.conocimientoProperty());
 
 	}
 		
@@ -148,6 +147,8 @@ public class RootController implements Initializable {
 	void onAbrirCV(ActionEvent event) {
 
 		FileChooser fileChooser = new FileChooser();
+		fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Currículum (*.CV)", "*.cv"));
+		fileChooser.getExtensionFilters().addAll(new ExtensionFilter("All Files", "*.*"));
 		File selectedFile = fileChooser.showOpenDialog(AppCV.PrimaryStage);
 		
 		if(selectedFile !=null) {
@@ -155,6 +156,7 @@ public class RootController implements Initializable {
 				String json = Files.readString(selectedFile.toPath(),StandardCharsets.UTF_8);
 				CV cv = gson.fromJson(json, CV.class);
 				this.cv.set(cv);
+				ficheroCV = selectedFile;				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -167,25 +169,23 @@ public class RootController implements Initializable {
 
 		CV cv = new CV();
 		this.cv.set(cv);
+		ficheroCV = null;
 		
 	}
 
 	@FXML
 	void onGuardar(ActionEvent event) {
-		if (!guardar) {
+		if (ficheroCV == null) {
 			onGuardarComo(event);
-			guardar = true;
 		} else {
-			if (ficheroCV != null) {
-				String json = gson.toJson(cv.get(), CV.class);
-				try {
-					Files.writeString(ficheroCV.toPath(), json, StandardCharsets.UTF_8, StandardOpenOption.CREATE);
-				} catch (IOException e) {
-					Alert alertaErrort= new Alert(AlertType.ERROR);
-					alertaErrort.setHeaderText("ocurrio un error");
-					alertaErrort.setContentText("El Curriculum Vitae no se ha podido guardar");
-					alertaErrort.showAndWait();
-				}
+			String json = gson.toJson(cv.get(), CV.class);
+			try {
+				Files.writeString(ficheroCV.toPath(), json, StandardCharsets.UTF_8, StandardOpenOption.CREATE);
+			} catch (IOException e) {
+				Alert alertaErrort= new Alert(AlertType.ERROR);
+				alertaErrort.setHeaderText("ocurrio un error");
+				alertaErrort.setContentText("El Curriculum Vitae no se ha podido guardar");
+				alertaErrort.showAndWait();
 			}
 		}
 		
@@ -195,6 +195,7 @@ public class RootController implements Initializable {
 	void onGuardarComo(ActionEvent event) {
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.setTitle("Guardar como");
+		fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Currículum (*.CV)", "*.cv"));
 		fileChooser.getExtensionFilters().addAll(new ExtensionFilter("All Files", "*.*"));
 		File cvFile = fileChooser.showSaveDialog(AppCV.PrimaryStage);
 
@@ -202,6 +203,7 @@ public class RootController implements Initializable {
 			String json = gson.toJson(cv.get(), CV.class);
 			try {
 				Files.writeString(cvFile.toPath(), json, StandardCharsets.UTF_8, StandardOpenOption.CREATE);
+				ficheroCV = cvFile;
 			} catch (IOException e) {
 				Alert alertaErrort= new Alert(AlertType.ERROR);
 				alertaErrort.setHeaderText("ocurrio un error");

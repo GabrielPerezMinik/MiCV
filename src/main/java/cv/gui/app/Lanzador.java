@@ -1,4 +1,4 @@
-package gui.lanzador;
+package cv.gui.app;
 
 public class Lanzador {
 

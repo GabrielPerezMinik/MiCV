@@ -1,4 +1,4 @@
-package gui.lanzador;
+package cv.gui.app;
 //import java.io.File;
 //import java.io.FileNotFoundException;
 //import java.io.FileReader;

@@ -1,6 +1,6 @@
-package gui.lanzador;
+package cv.gui.app;
 
-import gui.Entrañas.RootController;
+import cv.gui.controllers.RootController;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;

@@ -1,4 +1,4 @@
-package gui.Entrañas;
+package cv.gui.controllers;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -11,9 +11,9 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
-import cv.Nacionalidad;
-import cv.Personal;
-import gui.lanzador.AppCV;
+import cv.gui.app.AppCV;
+import cv.model.Nacionalidad;
+import cv.model.Personal;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleListProperty;
