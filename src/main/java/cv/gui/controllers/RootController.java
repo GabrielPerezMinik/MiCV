@@ -148,6 +148,8 @@ public class RootController implements Initializable {
 	void onAbrirCV(ActionEvent event) {
 
 		FileChooser fileChooser = new FileChooser();
+		fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Currículum (*.CV)", "*.cv"));
+		fileChooser.getExtensionFilters().addAll(new ExtensionFilter("All Files", "*.*"));
 		File selectedFile = fileChooser.showOpenDialog(AppCV.PrimaryStage);
 		
 		if(selectedFile !=null) {
@@ -195,6 +197,7 @@ public class RootController implements Initializable {
 	void onGuardarComo(ActionEvent event) {
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.setTitle("Guardar como");
+		fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Currículum (*.CV)", "*.cv"));
 		fileChooser.getExtensionFilters().addAll(new ExtensionFilter("All Files", "*.*"));
 		File cvFile = fileChooser.showSaveDialog(AppCV.PrimaryStage);
 
